@@ -1,0 +1,240 @@
+{
+    "courses": [
+        {
+            "title":"Sample course #1",
+            "hours": 0.25,
+            "modules":[
+                {
+                    "type":"Video",
+                    "url" :"https://www.youtube.com/embed/NaNdu9DEaX0"
+                },
+                {
+                    "type":"Quiz",
+                    "passingScore": 2,
+                    "questions": [
+                        [
+                            {
+                                "question":"True or False: You can just show up at a retirement home and expect to start volunteering immediately.",
+                                "answers" :[
+                                    "True","False"
+                                ],
+                                "correctAnswerIndex": 1
+                            },
+                            {
+                                "question":"True or False: You do not need any screening to start volunteering at a retirement home. ",
+                                "answers" :[
+                                    "True","False"
+                                ],
+                                "correctAnswerIndex": 1
+                            },
+                            {
+                                "question":"True or False: You should get a 2 step Tuberculosis Test and a Police Check before you start volunteering at a retirement home.",
+                                "answers" :[
+                                    "True","False"
+                                ],
+                                "correctAnswerIndex": 0
+                            }
+                        ],
+                        [
+                            {
+                                "question":"You have started volunteering at your local retirement home for the past few months and you are expected to show up at 5PM on Tuesdays. It’s Monday night and you just realized you have a major volleyball tournament you absolutely cannot miss at the same time tomorrow! What do you do?",
+                                "answers" :[
+                                    "Don’t show up to volunteering this week! It’s no big deal and I am sure they will understand because I have been so committed for the past few months.",
+                                    "You contact your retirement activities program director and call in sick – I’m sure they will understand!",
+                                    "You contact your retirement activities program director and explain the truth that you cannot come tomorrow because of a volleyball game. You own up to your scheduling error and apologize. You state that you will do better and be more organized in the future and provide more notice if you can’t make it to volunteering."
+                                ],
+                                "correctAnswerIndex": 2
+                            },
+                            {
+                                "question":"You have been volunteering at your local retirement home for the past 3 months on Saturday mornings. You wake up on Saturday and you just realized you have a big tennis game that you absolutely can’t miss! What do you do?",
+                                "answers" :[
+                                    "Skip Volunteering for the week and just show up next week",
+                                    "Contact your retirement activities program director and explain the truth that you can’t come because of the tennis game",
+                                    "Contact your retirement activities program director and call in sick" 
+                                ],
+                                "correctAnswerIndex": 1
+                            },
+                            {
+                                "question":"You have started volunteering at your local retirement home for the past few months and you are expected to show up at 4PM on Mondays. It’s Sunday night and you just realized you have an exam you absolutely cannot miss at the same time tomorrow! What do you do?",
+                                "answers" :[
+                                    "You contact your retirement activities program director and call in sick – I’m sure they will understand!",
+                                    "You contact your retirement activities program director and explain the truth that you cannot come tomorrow because of a volleyball game. You own up to your scheduling error and apologize. You state that you will do better and be more organized in the future and provide more notice if you can’t make it to volunteering.",
+                                    "Don’t show up to volunteering this week! It’s no big deal and I am sure they will understand because I have been so committed for the past few months."
+                                ],
+                                "correctAnswerIndex": 0
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "type":"Video",
+                    "url" :"https://www.youtube.com/embed/a05_0OvY_aE" 
+                },
+                {
+                    "type":"Quiz",
+                    "passingScore": 7,
+                    "questions": [
+                        [
+                            {
+                                "question":"You normally volunteer on Tuesday mornings at 10AM. You had a cold last week but you feel fine now and all you have is a small cough. What do you do?",
+                                "answers" :[
+                                    "Show up to volunteering as usual",
+                                    "Contact someone at the retirement home such as the retirement home program director and explain your symptoms",
+                                    "Skip Volunteering without informing anyone"
+                                ],
+                                "correctAnswerIndex": 1
+                            },
+                            {
+                                "question":"True or False: You are set to volunteer tomorrow but you have a cough. You feel totally fine besides the cough and thus you are good to volunteer like usual.",
+                                "answers" :[
+                                    "True",
+                                    "False"
+                                ],
+                                "correctAnswerIndex": 1
+                            },
+                            {
+                                "question":"You are set to volunteer tomorrow but you have a cough. You feel totally fine besides the cough. The best thing to do is to contact the volunteer office and make them aware of your symptoms and volunteer only if the office clears you.",
+                                "answers" :[
+                                    "True",
+                                    "False"
+                                ],
+                                "correctAnswerIndex": 0
+                            }
+                        ],
+                        [
+                            {
+                                "question":"It is recommended to get the annual flu shot.",
+                                "answers" :[
+                                    "True",
+                                    "False"
+                                ],
+                                "correctAnswerIndex": 0
+                            },
+                            {
+                                "question":"You should check your immunization record and ensure you keep up with immunizations throughout the course of your volunteer experience.",
+                                "answers" :[
+                                    "True",
+                                    "False"
+                                ],
+                                "correctAnswerIndex": 0
+                            },
+                            {
+                                "question":"You don’t need to check your immunization record and ensure you keep up with immunizations throughout the course of your volunteer experience.",
+                                "answers" :[
+                                    "True",
+                                    "False"
+                                ],
+                                "correctAnswerIndex": 1
+                            }
+                        ],
+                        [
+                            {
+                                "question":"You were just running bingo and a senior citizen who you have known for the past year asks you to wheel them back to their room as they are having difficulty seeing. What do you do?",
+                                "answers" :[
+                                    "Take them back to the room",
+                                    "Ask a staff member first",
+                                    "Do nothing because it’s not part of your volunteer job"
+                                ],
+                                "correctAnswerIndex": 1
+                            },
+                            {
+                                "question":"You walk in to the retirement home to volunteer and one of the seniors you know from your activity asks if you can wheel them outside to the patio. What do you do?",
+                                "answers" :[
+                                    "Wheel them to the patio",
+                                    "Ask a staff member first",
+                                    "Do nothing because it’s not part of your volunteer job"
+                                ],
+                                "correctAnswerIndex": 1
+                            },
+                            {
+                                "question":"You were just running jeopardy and a senior citizen who you have known for the past year asks you to wheel them back to their room as they are feeling unwell. What do you do?",
+                                "answers" :[
+                                    "Ask another volunteer to do it",
+                                    "Take them back to the room",
+                                    "Do nothing because it’s not part of your volunteer job",
+                                    "Ask a staff member first"
+                                ],
+                                "correctAnswerIndex": 3
+                            }
+                        ],
+                        [
+                            {
+                                "question":"One of the seniors (Bill) at the retirement home starts telling you about some family issues he is dealing with. Another senior at the retirement (Joe) who is good friends with Bill starts asking you if you know why Bill has seemed down recently. True or False: You can tell Joe about Bill’s problems because you know they are close friends and Bill is probably going to tell Joe anyway later on.",
+                                "answers" :[
+                                    "True",
+                                    "False"
+                                ],
+                                "correctAnswerIndex": 1
+                            }
+                        ],
+                        [
+                            {
+                                "question":"You are running a jeopardy program at a local retirement home. One of the seniors in the room (who is not in your program) starts yelling and screaming. What do you do?",
+                                "answers" :[
+                                    "Try to keep running jeopardy and hope someone else will help the senior",
+                                    "Pause your program and contact a staff member immediately",
+                                    "Try to reason with the senior who is yelling and calm them down."
+                                ],
+                                "correctAnswerIndex": 1
+                            },
+                            {
+                                "question":"You are running bingo at a local retirement home. One of the seniors in the room (who is not in your program) starts screaming that she has chest pain. What do you do?",
+                                "answers" :[
+                                    "Try to reason with the senior who is yelling and calm them down.",
+                                    "Try to keep running bingo and hope someone else will help the senior",
+                                    "Pause your program and contact a staff member immediately"
+                                ],
+                                "correctAnswerIndex": 2
+                            },
+                            {
+                                "question":"You are running a jeopardy program at a local retirement home. One of the seniors in the room (who is not in your program) starts yelling and screaming. True or False: You should keep running jeopardy and hope someone else will help the senior.",
+                                "answers" :[
+                                    "True",
+                                    "False"
+                                ],
+                                "correctAnswerIndex": 1
+                            }
+                        ],
+                        [
+                            {
+                                "question":"You have been running Bingo for the past few months and you want to try a new program at the retirement home. True or False: You can’t do this because you already committed to this program for the year.",
+                                "answers" :[
+                                    "True",
+                                    "False"
+                                ],
+                                "correctAnswerIndex": 1
+                            },
+                            {
+                                "question":"You have been running Bingo for the past few months and you want to try a trivia program but you committed to the program for the rest of the year. The best thing to do is…?",
+                                "answers" :[
+                                    "You say nothing and continue with the program",
+                                    "Talk to your retirement home coordinator about switching the program"
+                                ],
+                                "correctAnswerIndex": 1
+                            },
+                            {
+                                "question":"You have been running Jeopardy for the past few months and you want to try a new program at the retirement home. The problem is that you already committed to the program for the year. The best thing to do is to talk to the retirement home director about possibly switching the program you are running.",
+                                "answers" :[
+                                    "True",
+                                    "False"
+                                ],
+                                "correctAnswerIndex": 0
+                            }
+                        ],
+                        [
+                            {
+                                "question": "True or False: If you are running a technology program you should not save any of the personal information of the senior citizens after your program (e.g. their email address, iCloud account, etc.).",
+                                "answers" :[
+                                    "True",
+                                    "False"
+                                ],
+                                "correctAnswerIndex": 0
+                            }
+                        ]
+                    ]
+                }
+            ]
+        }
+
+    ]
+}
