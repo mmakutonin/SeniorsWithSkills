@@ -1,5 +1,5 @@
 <template>
-    <div v-if='fname && lname' class='w3-block w3-theme-dark w3-row cust-header-height w3-center w3-xlarge'>
+    <div v-if='fname && lname' class='w3-block w3-theme-dark w3-row cust-header-height w3-center cust-header-font-height'>
         <div class='w3-third'> Hi, {{fname}} {{lname}}! </div>
         <div class='w3-third'> 
             <img src='../assets/logo.png' class='w3-cell cust-header-height' />

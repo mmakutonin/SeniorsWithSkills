@@ -3,7 +3,7 @@
     <Header />
     <div class='w3-container cust-mainview'>
       <StartPage v-if='!courseSelected' />
-      <div v-else class='w3-card w3-container w3-round-xlarge'>
+      <div v-else class='w3-card w3-container w3-round-xlarge cust-card'>
         <div
           v-for='(module, index) in course.modules'
           v-bind:key='index'
@@ -27,11 +27,11 @@
 <script>
 import {mapState} from 'vuex'
 
-import StartPage from './components/StartPage'
+import StartPage from './components/AppStartPage'
 import Quiz from './components/ModuleQuiz'
 import Video from './components/ModuleVideo'
 import Navigation from './components/ModuleNavigation'
-import Header from './components/ModuleHeader'
+import Header from './components/AppHeader'
 
 export default {
   name: 'app',
