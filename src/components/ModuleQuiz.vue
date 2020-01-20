@@ -4,7 +4,8 @@
             <div v-if='index===currentQuestionIndex'>
                 {{question.question}}
                 <div v-for='(answer, qIndex) in question.answers' v-bind:key='qIndex'>
-                    <input type='radio' v-model='answers[index]' name='answer' v-bind:value='qIndex'/> {{answer}}
+                    <input type='radio' v-model='answers[index]' name='answer' v-bind:value='qIndex'/>
+                    <label> {{answer}} </label>
                 </div>
             </div>
         </div>

@@ -1,9 +1,10 @@
 <template>
-  <div class='cust-vh-full w3-theme-light '>
+  <div class='cust-vh-full w3-theme-light'>
     <Header />
     <div class='w3-container cust-mainview'>
       <StartPage v-if='!courseSelected' />
-      <div v-else class='w3-card w3-container w3-round-xlarge cust-card'>
+      <div v-else class='w3-card w3-round-xlarge cust-card w3-container'>
+        <ModuleProgress />
         <div
           v-for='(module, index) in course.modules'
           v-bind:key='index'
@@ -18,7 +19,6 @@
           <Quiz v-bind:module='finalQuizModule' />
         </div>
         <Navigation />
-        //errorDisplay
       </div>
     </div>
   </div>
@@ -32,6 +32,7 @@ import Quiz from './components/ModuleQuiz'
 import Video from './components/ModuleVideo'
 import Navigation from './components/ModuleNavigation'
 import Header from './components/AppHeader'
+import ModuleProgress from './components/ModuleProgress'
 
 export default {
   name: 'app',
@@ -40,7 +41,8 @@ export default {
     StartPage,
     Quiz,
     Video,
-    Navigation
+    Navigation,
+    ModuleProgress
   },
   computed: {
     ...mapState([

@@ -34,7 +34,7 @@ export default new Vuex.Store({
         else {
           return false
         }
-      }).concat([false])
+      })
     },
     currentModuleIndexReset (state) {
       state.currentModuleIndex = 0
@@ -44,6 +44,9 @@ export default new Vuex.Store({
     },
     currentModuleIndexDecrement (state) {
       state.currentModuleIndex--
+    },
+    currentModuleIndexChange (state, payload) {
+      state.currentModuleIndex = payload.newIndex;
     },
     completeModule (state) {
       Vue.set(state.courseProgressArray, state.currentModuleIndex, true)

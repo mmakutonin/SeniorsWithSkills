@@ -1,7 +1,19 @@
 <template>
-    <div>
-        <input type='button' value='Previous Module' v-on:click='$store.commit("currentModuleIndexDecrement")' v-bind:disabled='$store.state.currentModuleIndex === 0'/>
-        <input type='button' value='Next Module' v-on:click='$store.commit("currentModuleIndexIncrement")' v-bind:disabled='!currentModuleComplete'/>
+    <div class='w3-block w3-row cust-module-nav-height w3-border-top w3-border-black'>
+        <input
+            type='button'
+            value='Previous Module'
+            v-on:click='$store.commit("currentModuleIndexDecrement")'
+            v-bind:disabled='$store.state.currentModuleIndex === 0'
+            class='w3-button w3-half cust-module-nav-height w3-border-right w3-border-theme'
+        />
+        <input
+            type='button'
+            value='Next Module'
+            v-on:click='$store.commit("currentModuleIndexIncrement")'
+            v-bind:disabled='!currentModuleComplete'
+            class='w3-button w3-half cust-module-nav-height'
+        />
     </div>
 </template>
 

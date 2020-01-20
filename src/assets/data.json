@@ -1,7 +1,7 @@
 {
     "courses": [
         {
-            "title":"Sample course #1",
+            "title":"Introduction",
             "hours": 0.25,
             "modules":[
                 {

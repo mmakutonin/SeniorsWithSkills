@@ -4,8 +4,8 @@
     --header-height: 40px;
     --mainview-height: calc(var(--full-height) - var(--header-height));
     --module-card-height: calc(var(--mainview-height) - (2 * var(--padding-height)));
-    --module-nav-height: 25px;
-    --module-progress-height: 50px;
+    --module-nav-height: 30px;
+    --module-progress-height: 80px;
     --module-content-height: calc(var(--module-card-height) - var(--module-nav-height) - var(--module-progress-height));
 }
 .cust-vh-full {
@@ -31,6 +31,7 @@
 }
 .cust-card {
     height: var(--module-card-height);
+    padding: 0;
 }
 .cust-display-modal {
     display:block;

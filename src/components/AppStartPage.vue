@@ -33,9 +33,9 @@
             </div>
         </div>
         <div v-else>
-            <div class='w3-card w3-l2 w3-round w3-three-quarter cust-card'>
-                <ul class='w3-ul w3-theme-light'>
-                    <li class='w3-xlarge w3-padding-small'> Please select a course to take: </li>
+            <div class='w3-card w3-l2 w3-round-large w3-three-quarter w3-theme-l4 cust-card'>
+                <ul class='w3-ul w3-border'>
+                    <li class='w3-xlarge w3-padding-small w3-border-theme'> Please select a course to take: </li>
                     <li 
                         v-for='(course, index) in $store.state.courses'
                         v-bind:key='index'

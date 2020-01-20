@@ -1,5 +1,5 @@
 <template>
-    <iframe v-bind:src='videoUrl' style='width: 500px; height: 500px'/>
+    <iframe v-bind:src='videoUrl' class='w3-block w3-padding w3-border-0 cust-module-content' allowfullscreen/>
 </template>
 
 <script>
