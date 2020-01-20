@@ -58,10 +58,6 @@ export default new Vuex.Store({
   actions: {
     startCourse({commit}, payload) {
       commit({
-        type: 'populateParticipantMetadata',
-        participant: payload.participant
-      })
-      commit({
         type: 'populateCourseProgressArray',
         courseIndex: payload.courseIndex
       })

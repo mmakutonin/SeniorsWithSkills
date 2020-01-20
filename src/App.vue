@@ -1,23 +1,25 @@
 <template>
-  <div>
-    <StartPage v-if='!courseSelected' />
-    <div v-else>
-      <Header />
-      <div
-        v-for='(module, index) in course.modules'
-        v-bind:key='index'
-      >
-        <component
-          v-if='index===currentModuleIndex'
-          v-bind:is='module.type'
-          v-bind='{module}'
-        />
+  <div class='cust-vh-full w3-theme-light '>
+    <Header />
+    <div class='w3-container cust-mainview'>
+      <StartPage v-if='!courseSelected' />
+      <div v-else class='w3-card w3-container w3-round-xlarge'>
+        <div
+          v-for='(module, index) in course.modules'
+          v-bind:key='index'
+        >
+          <component
+            v-if='index===currentModuleIndex'
+            v-bind:is='module.type'
+            v-bind='{module}'
+          />
+        </div>
+        <div v-if='currentModuleIndex === course.modules.length'>
+          <Quiz v-bind:module='finalQuizModule' />
+        </div>
+        <Navigation />
+        //errorDisplay
       </div>
-      <div v-if='currentModuleIndex === course.modules.length'>
-        <Quiz v-bind:module='finalQuizModule' />
-      </div>
-      <Navigation />
-      //errorDisplay
     </div>
   </div>
 </template>
@@ -34,6 +36,7 @@ import Header from './components/ModuleHeader'
 export default {
   name: 'app',
   components: {
+    Header,
     StartPage,
     Quiz,
     Video,
