@@ -60,6 +60,11 @@ export default {
         email: '',
         submitted: false
     }),
+    created() {
+        if(this.$store.state.participant.email) {
+            this.submitted = true
+        }
+    },
     methods: {
         submitParticipantInfo() {
             this.$store.commit({
@@ -77,6 +82,7 @@ export default {
                 type: 'startCourse',
                 courseIndex: index
             })
+            this.$router.push('/course')
         }
     },
     computed: {
