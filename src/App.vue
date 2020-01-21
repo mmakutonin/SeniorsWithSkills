@@ -26,6 +26,7 @@
 
 <script>
 import {mapState} from 'vuex'
+const fs = require('fs')
 
 import StartPage from './components/AppStartPage'
 import Quiz from './components/ModuleQuiz'
