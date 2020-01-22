@@ -11,11 +11,7 @@
             v-bind='{module}'
           />
         </div>
-        <Quiz
-          v-if='currentModuleIndex === courseModules.length'
-          v-bind:module='finalQuizModule'
-        />
-        <ModuleCertificate v-if='currentModuleIndex > courseModules.length' />
+        <ModuleCertificate v-if='currentModuleIndex === courseModules.length' />
         <Navigation />
       </div>
 </template>
@@ -34,22 +30,32 @@ export default {
         Quiz,
         Video,
         Navigation,
-        ModuleProgress
+        ModuleProgress,
+        ModuleCertificate
     },
     computed: {
     ...mapState({
-        courseModules: state => state.courses[state.courseIndexStarted].modules,
+        courseModules: state => state.courses[state.courseIndexStarted].modules
+            .map(module => {
+                if(module.type === 'Final Quiz') {
+                    const questions = state.courses[state.courseIndexStarted].modules
+                        .filter(module => module.type === 'Quiz')
+                        .reduce((aggregate, {questions}) => aggregate.concat(questions), [])
+                    return {
+                        ...module,
+                        type: 'Quiz',
+                        questions,
+                        passingScore: Math.ceil(questions.length * .8)
+                    }
+                }
+                else {
+                    return {
+                        ...module
+                    }
+                }
+            }),
         currentModuleIndex: state => state.currentModuleIndex
     }),
-    finalQuizModule() {
-      const questionsArray = this.courseModules
-        .filter(module => module.type === 'Quiz')
-        .reduce((aggregate, {questions}) => aggregate.concat(questions), [])
-      return {
-        questions: questionsArray,
-        passingScore: Math.ceil(questionsArray.length * .8)
-      }
-    }
   }
 }
 </script>

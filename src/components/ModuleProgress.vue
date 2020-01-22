@@ -26,7 +26,7 @@ export default {
             if(index === this.currentIndex) {
                 return 'w3-theme'
             }
-            else if(complete && type === 'Quiz' || (type === 'Video' && index < this.currentWorkIndex)) {
+            else if(complete && (type === 'Quiz' || 'Final Quiz') || (type === 'Video' && index < this.currentWorkIndex)) {
                 return 'w3-green'
             }
             else {
@@ -48,13 +48,9 @@ export default {
                     value,
                     type: state.courses[state.courseIndexStarted].modules[index].type
                 }))
-                .concat([{
-                    value: false,
-                    type: 'Final Quiz'
-                }])
         }),
         currentWorkIndex() {
-            return this.courseProgressArray
+            const currentWorkIndex = this.courseProgressArray
                 .reduce((agg, current, index) => {
                     if(agg !== true) {
                         return agg
@@ -66,6 +62,13 @@ export default {
                         return true
                     }
                 }, true)
+            if(currentWorkIndex === true) {
+                return this.courseProgressArray.length
+            }
+            else {
+                return currentWorkIndex
+            }
+
         }
     }
 }

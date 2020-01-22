@@ -69,7 +69,6 @@ export default new Vuex.Store({
         type: 'startCourse',
         index: payload.courseIndex
       })
-      commit('populateQuizImageSrcs')
     }
   },
   modules: {
