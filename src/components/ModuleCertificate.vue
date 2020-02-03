@@ -1,44 +1,70 @@
 <template>
-  <div class='w3-center'>
-    Congratulations on completing the course!
-    Please review/edit the following before downloading your certificate:
-    <input
-      type="text"
-      placeholder="First Name"
-      v-model="fname"
-      class="w3-input"
-    />
-    <input
-      type="text"
-      placeholder="Last Name"
-      v-model="lname"
-      class="w3-input"
-    />
-    <input
-      type="email"
-      placeholder="email@email.com"
-      v-model="email"
-      class="w3-input"
-    />
-    <input
-      type='button'
-      value='Download Your Certificate'
-      v-on:click='printCertificate'
-      class='w3-btn'
-    />
-    //Placeholder for PDFBuilder
-    <input
-      type='button'
-      value='Start Another Course'
-      v-on:click='printCertificate'
-      v-bind:disabled='!certificateObtained'
-      class='w3-btn w3-block'
-    />
+  <div class='w3-center cust-module-content w3-row-padding'>
+    <div class='w3-quarter w3-container w3-round w3-white'>
+      <label> Please review your information before printing your certificate. </label>
+      <label> First Name: </label>
+      <input
+        type="text"
+        placeholder="First Name"
+        v-model="fname"
+        class="w3-input w3-margin-bottom"
+      />
+      <label> Last Name: </label>
+      <input
+        type="text"
+        placeholder="Last Name"
+        v-model="lname"
+        class="w3-input w3-margin-bottom"
+      />
+      <label> Email: </label>
+      <input
+        type="email"
+        placeholder="email@email.com"
+        v-model="email"
+        class="w3-input w3-margin-bottom"
+      />
+    </div>
+    <div class='w3-rest w3-container'>
+      <div class='w3-white cust-certificate-width' ref='certificate'>
+        <img
+          src='../assets/logo.png'
+          />
+        <div class='w3-xlarge'>
+          <span class='cust-certificate-font'>This document certifies that</span><br/>
+          <span>{{pFname}} {{pLname}}</span><br/>
+          <span>at {{pEmail}}</span><br/>
+          <span class='cust-certificate-font'>Completed the Seniors with Skills</span><br/>
+          <span class='cust-certificate-font'>{{courseTitle}} Course</span><br/>
+        </div>
+      </div>
+      <div ref='htmltest' />
+    </div>
+    <div class='w3-container w3-row w3-section'>
+      <div class='w3-half'>
+        <input
+          type='button'
+          value='Download Your Certificate'
+          v-on:click='printCertificate'
+          class='w3-btn w3-round w3-border w3-border-theme'
+        />
+      </div>
+      <div class='w3-half'>
+        <input
+          type='button'
+          value='Start Another Course'
+          v-on:click='navigateToCourseSelection'
+          v-bind:disabled='!certificateObtained'
+          class='w3-btn w3-round w3-border w3-border-theme'
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from "vuex"
+const jsPDF = require('jspdf')
+import html2canvas from 'html2canvas'
 
 export default {
   name: "ModuleCertificate",
@@ -47,11 +73,17 @@ export default {
   }),
   methods: {
       printCertificate() {
-          //create certificate
-          //download certificate
+        html2canvas(this.$refs.certificate).then(res => {
+          const doc = jsPDF()
+          doc.addImage(res.toDataURL('image/png'), 'PNG', 0, 0)
+          doc.save('certificate.pdf')
+          this.certificateObtained = true
+        })
       },
       navigateToCourseSelection() {
-          //reset course metadata
+          this.$store.dispatch('completeCourse', {
+            courseIndex: this.courseIndex
+          })
           this.$router.push('/')
       }
   },
@@ -59,40 +91,54 @@ export default {
     ...mapState({
       fname: state => state.participant.fname,  
       lname: state => state.participant.lname,
-      email: state => state.participant.email
+      email: state => state.participant.email,
+      courseTitle: state => state.courses[state.courseIndexStarted].title,
+      courseIndex: state => state.courseIndexStarted
     }),
     pFname: {
-        get: () => this.fname,
-        set: val => this.$store.commit({
+        get() {
+          return this.fname
+        },
+        set(val) {
+          this.$store.commit({
             type: 'populateParticipantMetadata',
             participant: {
                 fname: val,
                 lname,
                 email
             }
-        })
+          })
+        }
     },
     pLname: {
-        get: () => this.lname,
-        set: val => this.$store.commit({
+        get() {
+          return this.lname
+        },
+        set(val) {
+          this.$store.commit({
             type: 'populateParticipantMetadata',
             participant: {
-                lname: val,
                 fname,
+                lname: val,
                 email
             }
-        })
+          })
+        }
     },
     pEmail: {
-        get: () => this.email,
-        set: val => this.$store.commit({
+        get() {
+          return this.email
+        },
+        set(val) {
+          this.$store.commit({
             type: 'populateParticipantMetadata',
             participant: {
-                email: val,
                 fname,
-                lname
+                lname,
+                email: val
             }
-        })
+          })
+        }
     },
   }
 };

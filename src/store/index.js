@@ -15,9 +15,7 @@ export default new Vuex.Store({
     },
     courseProgressArray: [],
     currentModuleIndex: -1,
-    error: {
-      message: ''
-    }
+    courseCompletionArray: []
   },
   mutations: {
     startCourse (state, payload) {
@@ -28,7 +26,7 @@ export default new Vuex.Store({
     },
     populateCourseProgressArray (state, payload) {
       state.courseProgressArray = state.courses[payload.courseIndex].modules.map(module => {
-        if(module.type === 'Video') {
+        if(payload.courseCompleted || module.type === 'Video') {
           return true
         }
         else {
@@ -51,26 +49,43 @@ export default new Vuex.Store({
     completeModule (state) {
       Vue.set(state.courseProgressArray, state.currentModuleIndex, true)
     },
-    createError(state, payload) {
-      state.error.message = payload.errorMessage
+    addToCompletionArray (state, payload) {
+      Vue.set(state.courseCompletionArray, state.courseCompletionArray.length, payload.courseIndex)
     },
-    removeError(state) {
-      state.error.message = ''
+    resetModuleData (state) {
+      state.courseProgressArray = []
+      state.currentModuleIndex = -1
+      state.courseIndexStarted = -1
     }
   },
   actions: {
-    startCourse({commit}, payload) {
+    startCourse({commit, state}, payload) {
+      let courseCompleted
+      if(state.courseCompletionArray.includes(payload.courseIndex)) {
+        courseCompleted = true
+      }
+      else {
+        courseCompleted = false
+      }
       commit({
         type: 'populateCourseProgressArray',
-        courseIndex: payload.courseIndex
+        courseIndex: payload.courseIndex,
+        courseCompleted
       })
       commit('currentModuleIndexReset')
       commit({
         type: 'startCourse',
         index: payload.courseIndex
       })
+    },
+    completeCourse({commit, state}, payload) {
+      if(!state.courseCompletionArray.includes(payload.courseIndex)) {
+        commit({
+          type: 'addToCompletionArray',
+          courseIndex: payload.courseIndex
+        })
+      }
+      commit('resetModuleData')
     }
-  },
-  modules: {
   }
 })
