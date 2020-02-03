@@ -37,10 +37,10 @@
                 <ul class='w3-ul w3-border'>
                     <li class='w3-xlarge w3-padding-small w3-border-theme'> Please select a course to take: </li>
                     <li 
-                        v-for='(course, index) in $store.state.courses'
+                        v-for='(course, index) in courses'
                         v-bind:key='index'
                         v-on:click='startCourse(index)'
-                        class='w3-padding-small w3-hover-theme'
+                        v-bind:class='"w3-padding-small w3-hover-theme " + courseCompletionColor(index)'
                     >
                         {{course.title}}
                         {{course.hours}}
@@ -52,6 +52,8 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
     name: 'StartPage',
     data: () => ({
@@ -61,7 +63,7 @@ export default {
         submitted: false
     }),
     created() {
-        if(this.$store.state.participant.email) {
+        if(this.sEmail) {
             this.submitted = true
         }
     },
@@ -83,9 +85,26 @@ export default {
                 courseIndex: index
             })
             this.$router.push('/course')
+        },
+        courseCompletionColor(index) {
+            if(index === this.indexStarted) {
+                return 'w3-blue'
+            }
+            else if(this.completionArray.includes(index)) {
+                return 'w3-green'
+            }
+            else {
+                return ''
+            }
         }
     },
     computed: {
+        ...mapState({
+            sEmail: state => state.participant.email,
+            courses: state => state.courses,
+            indexStarted: state => state.courseIndexStarted,
+            completionArray: state => state.courseCompletionArray
+        }),
         personalInfoFilled() {
             return this.fname && this.lname && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email)
         }
